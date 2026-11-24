@@ -1,0 +1,52 @@
+---
+pagetitle: "Noisy-Channel Booking Testbed"
+page-layout: full
+toc: false
+---
+
+```{=html}
+<link rel="stylesheet" href="assets/map.css">
+<div class="tb">
+  <div class="tb-head">
+    <p class="tb-h1" role="heading" aria-level="1">Does the booking survive a bad line?</p>
+    <p class="tb-lede">An open testbed for voice agents over degraded audio links. A simulated caller books an on-demand ride across a link with controlled packet loss, jitter and bitrate limits. We measure whether the booking comes out right, not how clean the audio sounds. Each block below lights up as its segment ships.</p>
+  </div>
+
+  <div class="tb-legend" aria-label="Status legend">
+    <span class="pill live">Live</span><span class="pill building">Building</span><span class="pill planned">Planned</span>
+    <span id="tbUpdated"></span>
+  </div>
+
+  <div class="tb-toolbar" role="group" aria-label="Highlight a track">
+    <button class="tb-chip" data-track="all" aria-pressed="true">All</button>
+    <button class="tb-chip" data-track="opt" aria-pressed="false" style="--c:var(--tb-opt)"><span class="tb-dot"></span>Route optimization</button>
+    <button class="tb-chip" data-track="voice" aria-pressed="false" style="--c:var(--tb-voice)"><span class="tb-dot"></span>Voice AI</button>
+    <button class="tb-chip" data-track="toc" aria-pressed="false" style="--c:var(--tb-toc)"><span class="tb-dot"></span>Task-oriented comms</button>
+    <button class="tb-chip" data-track="eval" aria-pressed="false" style="--c:var(--tb-eval)"><span class="tb-dot"></span>Evaluation</button>
+  </div>
+
+  <div class="tb-main">
+    <div class="tb-canvas"><svg id="tbMap" viewBox="0 0 1040 560" role="img" aria-labelledby="tbMapTitle">
+      <title id="tbMapTitle">Architecture of the noisy-channel booking testbed, with the status of each component</title>
+      <defs><marker id="tbArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="tb-arrow" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+      <g id="tbEdges"></g><g id="tbNodes"></g>
+    </svg></div>
+    <aside class="tb-panel" id="tbPanel" aria-live="polite"></aside>
+  </div>
+
+  <section class="tb-card" aria-labelledby="tbTraceH">
+    <h3 id="tbTraceH">Follow one booking call</h3>
+    <div class="tb-ctl">
+      <button class="tb-btn" id="tbPlay">Play</button>
+      <button class="tb-btn ghost" id="tbPrev">Previous</button>
+      <button class="tb-btn ghost" id="tbNext">Next</button>
+      <button class="tb-btn ghost" id="tbClear">Clear</button>
+      <ol class="tb-steps" id="tbSteps"></ol>
+    </div>
+    <p class="tb-stepText" id="tbStepText"></p>
+  </section>
+
+  <p class="tb-more">See the <a href="changelog.html">roadmap and changelog</a> for what ships when.</p>
+</div>
+<script src="assets/map.js"></script>
+```

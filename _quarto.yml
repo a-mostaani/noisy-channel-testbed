@@ -1,0 +1,33 @@
+project:
+  type: website
+  output-dir: _site
+  resources:
+    - assets/
+
+website:
+  title: "Noisy-Channel Booking Testbed"
+  description: "An open testbed for voice agents over degraded audio links, measured by task success."
+  navbar:
+    left:
+      - href: index.qmd
+        text: System map
+      - href: segments/booking-api.qmd
+        text: Booking API
+      - href: changelog.qmd
+        text: Roadmap
+    right:
+      - text: "Arsham Mostaani, Ph.D."
+        # Point this at your personal homepage once it exists.
+        href: index.qmd
+      # Add your GitHub link here when the Booking API repo is public, e.g.
+      # - icon: github
+      #   href: https://github.com/<you>/<booking-api-repo>
+  page-footer:
+    left: "The voice agent is closed source and appears here as one system under test. Results are published once the preprint is out."
+
+format:
+  html:
+    theme: [cosmo, theme.scss]
+    toc: true
+    toc-title: "On this page"
+    smooth-scroll: true

@@ -1,0 +1,59 @@
+---
+title: "Booking API and public data"
+subtitle: "Route optimization track"
+---
+
+::: {.tb-meta}
+<span class="pill building">Building</span> <span>Target release: 29 Nov 2026</span> <span>[← Back to the system map](../index.qmd)</span>
+:::
+
+## What it is
+
+A lightweight backend that the voice agent calls as its tools. It keeps bookings consistent and asks a route optimizer whether a requested trip fits into a vehicle's schedule. Unlike the agent, it is part of the open benchmark, so anyone can run the same booking tasks against their own agent.
+
+## Why it matters for the testbed
+
+A voice call only counts as a success if the system ends up with the right booking. The API gives every simulated call a ground truth to check against: the evaluator compares the final booking with the caller's goal. Because the solver says yes or no to a trip, an agent that mishears a pickup time can produce a booking that is feasible but wrong, which is exactly the failure the testbed is built to measure.
+
+## Endpoints (planned)
+
+| Endpoint | Purpose |
+|---|---|
+| `request_trip` | Propose a ride: pickup, drop-off, time window, passengers |
+| `check_feasibility` | Ask the optimizer whether and where the trip can be inserted |
+| `confirm` | Commit a feasible trip to a vehicle schedule |
+| `modify` | Change time, stops or passenger count on an existing booking |
+| `cancel` | Release the booking and update the schedule |
+
+## Data and solver
+
+Transit context comes from the TTC's GTFS and GTFS-Realtime feeds on Toronto Open Data. Demand comes from public dial-a-ride benchmark instances, such as Cordeau's. The solver is pluggable: version 1 uses a simple insertion heuristic or OR-Tools, and an adaptive large neighbourhood search (ALNS) solver can be swapped in later without changing the API.
+
+## Release checklist
+
+- [ ] Endpoints running against a simple solver
+- [ ] Public data loaded: GTFS stops plus one dial-a-ride instance
+- [ ] Text-mode agent completes one booking end to end
+- [ ] API reference and a one-command local setup
+
+## Demo
+
+::: {.tb-placeholder}
+A transcript of a text booking and the API calls it made will appear here when this segment ships.
+:::
+
+<!--
+When it ships, replace the placeholder with real content, for example:
+
+  (a Python cell, opened with three backticks and {python})
+  #| echo: false
+  import pandas as pd
+  pd.read_csv("../data/demo_api_calls.csv")
+
+Python cells need `pip install jupyter` locally and a Python setup step in the workflow.
+Plain Markdown, images and audio (<audio controls src="clip.wav"></audio>) need nothing extra.
+-->
+
+## Next segment
+
+The voice path over an impaired link, targeted for 13 Dec 2026: the same booking task, run under a chosen impairment with one command.

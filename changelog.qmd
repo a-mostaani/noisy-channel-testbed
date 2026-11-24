@@ -1,0 +1,15 @@
+---
+title: "Roadmap and changelog"
+toc: false
+---
+
+Newest first. When a segment ships, move it to the top with its release date, switch its status to <span class="pill live">Live</span>, and update the blocks in `assets/map.js`.
+
+| When | Status | What |
+|---|---|---|
+| Later | <span class="pill planned">Planned</span> | ALNS solver behind the API; learned operator selection as a separate optimization study |
+| March 2027 | <span class="pill planned">Planned</span> | Preprint, with results published on this site |
+| Dec 2026 – Jan 2027 | <span class="pill planned">Planned</span> | Task suite, measurement study and adaptive controller |
+| 13 Dec 2026 | <span class="pill planned">Planned</span> | Voice path over an impaired real-time link; one booking task runs under a chosen impairment with one command |
+| 29 Nov 2026 | <span class="pill building">Building</span> | [Booking API](segments/booking-api.qmd) with a simple solver on public data; text-mode agent books a ride end to end |
+| 24 Nov 2026 | <span class="pill live">Live</span> | Project site and system map published |
